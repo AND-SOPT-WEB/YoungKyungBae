@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    background-color: black;
+    align-items: center;
+    padding: 8px 24px;
+    position: sticky;
+}
+
+.navbar__menu {
+    display: flex;
+}
+
+.navbar__menu li {
+    list-style: none;
+    padding: 8px 24px;
+}
+
+.navbar__icons {
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto; /* 자동으로 사용 가능한 모든 공간 차지하여 오른쪽으로 밀어냄 */
+}
+
+.navbar__icons li {
+    list-style: none;
+    padding: 8px 12px;
+}
