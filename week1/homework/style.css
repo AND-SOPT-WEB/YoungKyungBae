@@ -2,8 +2,6 @@ body, html {
     margin: 0;
     padding: 0;
     width: 100vw;
-    overflow-x: hidden;
-    /* height: 100vh; */
     background-color: black;
 }
 
@@ -28,7 +26,6 @@ a {
 .navbar__logo img {
     width: 100px;
     height: auto;
-    /* object-fit: contain; */
 }
 
 .navbar__menu {
@@ -55,7 +52,6 @@ a {
 
 .banner {
     position: relative;
-    /* width: 100vw; */
     height: 80vh;
     background-image: url('wave.jpeg');
     background-size: cover;
@@ -111,7 +107,6 @@ h2 {
     width: calc(100vw - 15px); /* '100vw'를 사용할 때의 문제점은 계산에 스크롤 막대가 포함되어 패딩이나 여백이 추가될 때 레이아웃이 가로로 오버플로됨 */
     box-sizing: border-box;
     overflow: hidden;
-    /* padding: 0 15px; */
 }
 
 .infinite li {
@@ -139,7 +134,7 @@ h2 {
     100% {
       transform: translateX(-100%);
     }
-  }
+}
 
 .scroll {
     padding: 10px 15px;
