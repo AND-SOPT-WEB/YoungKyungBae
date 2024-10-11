@@ -20,17 +20,25 @@ a {
     position: fixed;
     top: 0;
     width: 100vw;
+    height: 80px;
     z-index: 10;
     box-sizing: border-box; /* 전체 너비에 패딩이 포함되어 패딩이 넘치거나 오른쪽이 잘리는 것을 방지 */
 }
 
+.navbar__logo img {
+    width: 100px;
+    height: auto;
+    /* object-fit: contain; */
+}
+
 .navbar__menu {
     display: flex;
+    padding-left: 20px;
 }
 
 .navbar__menu li {
     list-style: none;
-    padding: 8px 24px;
+    padding: 8px 18px;
 }
 
 .navbar__icons {
@@ -42,14 +50,14 @@ a {
 
 .navbar__icons li {
     list-style: none;
-    padding: 8px 12px;
+    padding: 8px 10px;
 }
 
 .banner {
     position: relative;
     /* width: 100vw; */
     height: 80vh;
-    background-image: url('back.jpg');
+    background-image: url('wave.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -86,8 +94,6 @@ button {
 .group {
     display: flex;
     width: 100vw;
-    /* margin: 0 15px; */
-    box-sizing: border-box;
     overflow: hidden;
     > * {
         flex: 0 0 100%;
@@ -95,7 +101,7 @@ button {
 }
 
 h2 {
-    /* margin: 0 15px; */
+    margin: 0;
     color: white;
 }
 
@@ -123,7 +129,7 @@ h2 {
     display: flex;
     padding: 0;
     will-change: transform;
-    animation: scrolling 10s linear infinite;
+    animation: scrolling 20s linear infinite;
 }
 
 @keyframes scrolling {
@@ -142,9 +148,10 @@ h2 {
 .wrap-vertical {
     display: flex;
     width: 100%;
+    margin: 20px 0;
     box-sizing: border-box;
     overflow: scroll;
-    border-radius: 8px;
+    border-radius: 10px;
 
     overflow: auto;
     white-space: nowrap;
