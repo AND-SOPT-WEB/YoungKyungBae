@@ -101,12 +101,12 @@ button:hover {
 }
 
 h2 {
-    margin: 0;
+    margin-bottom: 15px;
     color: white;
 }
 
 .infinite {
-    margin-top: 30px;
+    margin: 30px 0;
     padding: 0 15px;
     width: calc(100vw - 15px); /* '100vw'를 사용할 때의 문제점은 계산에 스크롤 막대가 포함되어 패딩이나 여백이 추가될 때 레이아웃이 가로로 오버플로됨 */
     box-sizing: border-box;
@@ -121,14 +121,21 @@ h2 {
     width: 300px;
     height: 300px;
     object-fit: cover; /* 사진이 찌그러지지 않고 크기에 맞게 배치됨 */
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
 .infinite__image {
     display: flex;
+    margin: 0;
     padding: 0;
+    height: 300px;
     will-change: transform;
     animation: scrolling 20s linear infinite;
+    /* overflow: hidden; */
+}
+
+.loop:hover img {
+    transform: scale(1.2);
 }
 
 @keyframes scrolling {
