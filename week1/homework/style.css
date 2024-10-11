@@ -77,7 +77,7 @@ a {
     justify-content: flex-end;
 }
 
-button {
+.banner button {
     color: white;
     font-size: 15px;
     background-color: rgb(0, 0, 0, 0.4);
@@ -87,7 +87,7 @@ button {
     padding: 5px 18px;
 }
 
-button:hover {
+.banner button:hover {
     background-color: rgb(0, 0, 0, 0.7);
 }
 
@@ -135,7 +135,7 @@ h2 {
 }
 
 .loop:hover img {
-    transform: scale(1.2);
+    transform: scale(1.2); /* 이미지 확대 */
 }
 
 @keyframes scrolling {
@@ -153,14 +153,46 @@ h2 {
 }
 .wrap-vertical {
     display: flex;
+    align-items: center;
     width: 100%;
     margin: 20px 0;
     box-sizing: border-box;
     overflow: scroll;
     border-radius: 10px;
+    /* position: relative; */
 
     overflow: auto;
     white-space: nowrap;
+}
+
+.left {
+    padding: 0;
+    border: 0;
+    width: 25px;
+    height: 308px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+    /* cursor: pointer; */
+    z-index: 10;
+    position: sticky;
+    left: 1px;
+}
+
+.right {
+    padding: 0;
+    border: 0;
+    width: 25px;
+    height: 308px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+    /* cursor: pointer; */
+    z-index: 10;
+    position: sticky;
+    right: 1px;
 }
 
 .scroll li {
@@ -178,4 +210,6 @@ h2 {
 .wrap__image {
     display: flex;
     padding: 0;
+    transition: transform 0.5s ease; /* 부드러운 이동 효과 */
+    overflow-x: scroll; /* 가로 스크롤 허용 */
 }

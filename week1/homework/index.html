@@ -82,11 +82,14 @@
         </div>
     </footer>
 
-    <footer class="scroll">
+    <footer class="scroll" data-spy="scroll" data-target="#wrap-vertical">
         <h2>물결웹 YB 배영경을 소개합니다!</h2>
-        <div class="wrap-vertical">
+        <div id="wrap-vertical" class="wrap-vertical">
+            <button class="left">
+                <a href="#1">왼쪽</a>
+            </button>
             <ul class="wrap__image"></ul>
-                <li class="wrap"><img src="image/111.jpeg" alt=""></li>
+                <li id="1" class="wrap"><img src="image/111.jpeg" alt=""></li>
                 <li class="wrap"><img src="image/222.jpeg" alt=""></li>
                 <li class="wrap"><img src="image/333.jpeg" alt=""></li>
                 <li class="wrap"><img src="image/444.jpeg" alt=""></li>
@@ -96,8 +99,11 @@
                 <li class="wrap"><img src="image/888.jpeg" alt=""></li>
                 <li class="wrap"><img src="image/999.jpeg" alt=""></li>
                 <li class="wrap"><img src="image/1010.jpeg" alt=""></li>
-                <li class="wrap"><img src="image/1111.jpeg" alt=""></li>
+                <li id="11" class="wrap"><img src="image/1111.jpeg" alt=""></li>
             </ul>
+            <button class="right">
+                <a href="#11">오른쪽</a>
+            </button>
         </div>
     </footer>
 </body>
