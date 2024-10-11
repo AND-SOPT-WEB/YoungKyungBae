@@ -118,8 +118,6 @@ h2 {
     padding: 0;
     will-change: transform;
     animation: scrolling 10s linear infinite;
-    /* max-width: 700px; */
-    
 }
 
 @keyframes scrolling {
@@ -131,17 +129,33 @@ h2 {
     }
   }
 
+.scroll {
+    padding: 10px 0;
+}
+.wrap-vertical {
+    display: flex;
+    width: 100%;
+    margin: 0 15px;
+    box-sizing: border-box;
+    overflow: scroll;
 
+    overflow: auto;
+    white-space: nowrap;
+}
 
+.scroll li {
+    list-style: none;
+}
 
-/* 롤링 애니메이션 정의 */
-/*
-@keyframes roll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-110%);
-      /* transform: translateX(calc(-300px * 10));  */
-      /* 300px은 이미지의 너비 */
-    
+.scroll img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover; /* 사진이 찌그러지지 않고 크기에 맞게 배치됨 */
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.wrap__image {
+    display: flex;
+    padding: 0;
+}
