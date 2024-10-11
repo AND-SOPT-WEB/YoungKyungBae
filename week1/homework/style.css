@@ -1,7 +1,9 @@
 body, html {
     margin: 0;
-    width: 100%;
-    height: 100%;
+    padding: 0;
+    width: 100vw;
+    overflow-x: hidden;
+    /* height: 100vh; */
     background-color: black;
 }
 
@@ -17,7 +19,7 @@ a {
     padding: 8px 24px;
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 100vw;
     z-index: 10;
     box-sizing: border-box; /* 전체 너비에 패딩이 포함되어 패딩이 넘치거나 오른쪽이 잘리는 것을 방지 */
 }
@@ -45,7 +47,7 @@ a {
 
 .banner {
     position: relative;
-    width: 100%;
+    /* width: 100vw; */
     height: 80vh;
     background-image: url('back.jpg');
     background-size: cover;
@@ -83,8 +85,8 @@ button {
 
 .group {
     display: flex;
-    width: 100%;
-    margin: 0 15px;
+    width: 100vw;
+    /* margin: 0 15px; */
     box-sizing: border-box;
     overflow: hidden;
     > * {
@@ -93,13 +95,17 @@ button {
 }
 
 h2 {
-    margin: 0 15px;
+    /* margin: 0 15px; */
     color: white;
 }
 
 .infinite {
     margin-top: 30px;
-    width: 100vw;
+    padding: 0 15px;
+    width: calc(100vw - 15px); /* '100vw'를 사용할 때의 문제점은 계산에 스크롤 막대가 포함되어 패딩이나 여백이 추가될 때 레이아웃이 가로로 오버플로됨 */
+    box-sizing: border-box;
+    overflow: hidden;
+    /* padding: 0 15px; */
 }
 
 .infinite li {
@@ -130,14 +136,15 @@ h2 {
   }
 
 .scroll {
-    padding: 10px 0;
+    padding: 10px 15px;
+    overflow: hidden;
 }
 .wrap-vertical {
     display: flex;
     width: 100%;
-    margin: 0 15px;
     box-sizing: border-box;
     overflow: scroll;
+    border-radius: 8px;
 
     overflow: auto;
     white-space: nowrap;
