@@ -93,7 +93,7 @@ a {
 
 .group {
     display: flex;
-    width: 100vw;
+    /* width: 100vw; */
     overflow: hidden;
     > * {
         flex: 0 0 100%;
@@ -108,9 +108,9 @@ h2 {
 .infinite {
     margin: 30px 0;
     padding: 0 15px;
-    width: calc(100vw - 15px); /* '100vw'를 사용할 때의 문제점은 계산에 스크롤 막대가 포함되어 패딩이나 여백이 추가될 때 레이아웃이 가로로 오버플로됨 */
+    /* width: calc(100vw - 15px); '100vw'를 사용할 때의 문제점은 계산에 스크롤 막대가 포함되어 패딩이나 여백이 추가될 때 레이아웃이 가로로 오버플로됨 */
     box-sizing: border-box;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .infinite li {
@@ -177,7 +177,7 @@ h2 {
     align-items: center;
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 4px;
-    /* cursor: pointer; */
+    cursor: pointer;
     z-index: 10;
     position: sticky;
     left: 0px;
@@ -208,13 +208,15 @@ h2 {
     width: 200px;
     height: 300px;
     object-fit: cover; /* 사진이 찌그러지지 않고 크기에 맞게 배치됨 */
-    margin-right: 10px;
+    /* margin-right: 10px; */
     border-radius: 4px;
 }
 
 .wrap__image {
     display: flex;
+    gap:16px;
     padding: 0;
     transition: transform 0.5s ease; /* 부드러운 이동 효과 */
-    overflow-x: scroll; /* 가로 스크롤 허용 */
+    /*overflow-x: scroll;*/ /* 가로 스크롤 허용 */
+    /* position: relative; */
 }
