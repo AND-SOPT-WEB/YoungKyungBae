@@ -12,6 +12,10 @@ const buttonClick = () => {
     li.appendChild(deleteBnt);
     todoList.appendChild(li);
     document.querySelector("input").value = "";
+    localStorage.setItem("input", JSON.stringify(input,value));
+    localStorage.setItem("button", JSON.stringify(deleteBnt));
+
+    deleteBnt.addEventListener("click", () => {todoList.removeChild(li)});
 };
 
 button.addEventListener("click", buttonClick);
