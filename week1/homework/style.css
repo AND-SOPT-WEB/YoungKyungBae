@@ -24,7 +24,7 @@ a {
 }
 
 .navbar__logo img {
-    width: 100px;
+    width: 6.25rem;
     height: auto;
 }
 
@@ -65,7 +65,7 @@ a {
 
 .banner__phrase {
     color: black;
-    font-size: 24px;
+    font-size: 1.5rem;
     padding: 5px 8px;
     background-color: beige;
     border-radius: 4px;
