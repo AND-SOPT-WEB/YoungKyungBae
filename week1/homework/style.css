@@ -19,7 +19,7 @@ a {
     top: 0;
     width: 100vw;
     height: 80px;
-    z-index: 10;
+    z-index: 1;
     box-sizing: border-box; /* 전체 너비에 패딩이 포함되어 패딩이 넘치거나 오른쪽이 잘리는 것을 방지 */
 }
 
@@ -51,7 +51,6 @@ a {
 }
 
 .banner {
-    position: relative;
     height: 80vh;
     background-image: url('wave.jpeg');
     background-size: cover;
