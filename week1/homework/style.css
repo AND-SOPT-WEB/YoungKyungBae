@@ -137,6 +137,10 @@ h2 {
     transform: scale(1.2); /* 이미지 확대 */
 }
 
+loop img {
+    transition: transform 0.3s ease;
+}
+
 @keyframes scrolling {
     0% {
       transform: translateX(0);
@@ -176,7 +180,6 @@ h2 {
     align-items: center;
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 4px;
-    cursor: pointer;
     z-index: 10;
     position: sticky;
     left: 0px;
@@ -192,7 +195,6 @@ h2 {
     align-items: center;
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 4px;
-    /* cursor: pointer; */
     z-index: 10;
     position: sticky;
     right: 0px;
