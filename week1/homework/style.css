@@ -1,0 +1,220 @@
+@import "reset.css";
+
+body {
+    background-color: black;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    background-color: transparent; /* 배경색 투명으로 만들기 */
+    align-items: center;
+    padding: 8px 24px;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 80px;
+    z-index: 1;
+    box-sizing: border-box; /* 전체 너비에 패딩이 포함되어 패딩이 넘치거나 오른쪽이 잘리는 것을 방지 */
+}
+
+.navbar__logo img {
+    width: 6.25rem;
+    height: auto;
+}
+
+.navbar__menu {
+    display: flex;
+    padding-left: 20px;
+}
+
+.navbar__menu li {
+    list-style: none;
+    padding: 8px 18px;
+}
+
+.navbar__icons {
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto; /* 자동으로 사용 가능한 모든 공간 차지하여 오른쪽으로 밀어냄 */
+}
+
+.navbar__icons li {
+    list-style: none;
+    padding: 8px 10px;
+}
+
+.banner {
+    height: 80vh;
+    background-image: url('wave.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 40px;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.banner__phrase {
+    color: black;
+    font-size: 1.5rem;
+    padding: 5px 8px;
+    background-color: beige;
+    border-radius: 4px;
+    margin: 8px 0;
+}
+
+.banner__button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.banner button {
+    color: white;
+    font-size: 15px;
+    background-color: rgb(0, 0, 0, 0.4);
+    border: 0;
+    outline: 0;
+    border-radius: 8px;
+    padding: 5px 18px;
+}
+
+.banner button:hover {
+    background-color: rgb(0, 0, 0, 0.7);
+}
+
+.group {
+    display: flex;
+    /* width: 100vw; */
+    overflow: hidden;
+    > * {
+        flex: 0 0 100%;
+    }
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: white;
+}
+
+.infinite {
+    margin: 30px 0;
+    padding: 0 15px;
+    /* width: calc(100vw - 15px); '100vw'를 사용할 때의 문제점은 계산에 스크롤 막대가 포함되어 패딩이나 여백이 추가될 때 레이아웃이 가로로 오버플로됨 */
+    box-sizing: border-box;
+    /* overflow: hidden; */
+}
+
+.infinite li {
+    list-style: none;
+}
+
+.infinite img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover; /* 사진이 찌그러지지 않고 크기에 맞게 배치됨 */
+    margin-right: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.infinite__image {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 300px;
+    will-change: transform;
+    animation: scrolling 20s linear infinite;
+    /* overflow: hidden; */
+}
+
+.infinite__image li:hover img {
+    transform: scale(1.2); /* 이미지 확대 */
+}
+
+@keyframes scrolling {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+}
+
+.scroll {
+    padding: 10px 15px;
+    overflow: hidden;
+}
+.wrap-vertical {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+    box-sizing: border-box;
+    overflow: scroll;
+    border-radius: 10px;
+    position: relative;
+
+    white-space: nowrap;
+}
+
+.wrap-vertical i {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.left {
+    padding: 0;
+    border: 0;
+    width: 25px;
+    height: 308px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+    z-index: 10;
+    position: sticky;
+    left: 0px;
+    font-size: 30px;
+}
+
+.right {
+    padding: 0;
+    border: 0;
+    width: 25px;
+    height: 308px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+    z-index: 10;
+    position: sticky;
+    right: 0px;
+    font-size: 30px;
+}
+
+.scroll li {
+    list-style: none;
+}
+
+.scroll img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover; /* 사진이 찌그러지지 않고 크기에 맞게 배치됨 */
+    /* margin-right: 10px; */
+    border-radius: 4px;
+}
+
+.wrap__image {
+    display: flex;
+    gap:16px;
+    padding: 0;
+    transition: transform 0.5s ease; /* 부드러운 이동 효과 */
+    /*overflow-x: scroll;*/ /* 가로 스크롤 허용 */
+    /* position: relative; */
+}
