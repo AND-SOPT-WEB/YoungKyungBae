@@ -1,0 +1,28 @@
+@import "./reset.css";
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #7FA1C3;
+    height: 32px;
+    padding: 8px 12px;
+}
+
+.navbar i {
+    flex-basis: 33%;
+    justify-content: flex-start;
+}
+
+.title {
+    flex-basis: 33%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.navbar__content {
+    display: flex;
+    flex-basis: 33%;
+    justify-content: flex-end;
+}
