@@ -42,6 +42,7 @@ main {
     flex-direction: column;
     justify-content: space-between;
     margin: 20px 0;
+    border-radius: 2px;
 }
 
 .filter__container {
@@ -120,4 +121,20 @@ article:nth-child(7) {
 .search {
     background-color: #083e75;
     flex-basis: 50%;
+}
+
+table {
+    width: 60%;
+}
+
+th, td {
+    border: 1px solid;
+    border-color: #6482AD;
+    padding: 10px 5px;
+    text-align: center;
+}
+
+th {
+    background-color: #7FA1C3;
+    color: #fffaf8;
 }
