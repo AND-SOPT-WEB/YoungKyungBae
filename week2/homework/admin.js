@@ -2,9 +2,25 @@ import { members } from './data.js';
 
 const membersData = JSON.parse(localStorage.getItem("membersData")) ?? [];
 
-const test = () => {
+const searchBtn = document.querySelector(".search");
+const resetBtn = document.querySelector(".reset");
+
+const getInputValues = () => {
+    return {
+        name: document.querySelector("input.name").value.trim(),
+        englishName: document.querySelector("input.enName").value.trim(),
+        github: document.querySelector("input.github").value.trim(),
+        gender: document.querySelector("input.gender").value.trim(),
+        role: document.querySelector("input.role").value.trim(),
+        firstWeekGroup: document.querySelector("input.firstGroup").value.trim(),
+        secondWeekGroup: document.querySelector("input.secondGroup").value.trim(),
+    };
+};
+
+const renderList = (data) => {
     const memberTable = document.querySelector(".table");
-    membersData.forEach((member, index) => {
+    memberTable.innerHTML = "";
+    data.forEach((member, index) => {
         const memberTr = document.createElement("tr");
         const name = document.createElement("td");
         const englishName = document.createElement("td");
@@ -31,6 +47,32 @@ const test = () => {
         memberTr.appendChild(secondWeekGroup);
         memberTable.appendChild(memberTr);
     });
-}
+};
 
-test();
+const searchClick = () => {
+    const filters = getInputValues();
+
+    const filteredMembers = membersData.filter(member => {
+        return (
+            (!filters.name || member.name.includes(filters.name)) &&
+            (!filters.englishName || member.englishName.includes(filters.englishName)) &&
+            (!filters.github || member.github.includes(filters.github)) &&
+            (!filters.gender || member.gender === filters.gender) &&
+            (!filters.role || member.role === filters.role) &&
+            (!filters.firstWeekGroup || member.firstWeekGroup == filters.firstWeekGroup) &&
+            (!filters.secondWeekGroup || member.secondWeekGroup == filters.secondWeekGroup)
+        );
+    });
+    
+    renderList(filteredMembers);
+    document.querySelectorAll("input").forEach(input => {
+        input.value = "";
+    });
+};
+
+const init = () => {
+    searchBtn.addEventListener("click", searchClick);
+    renderList(membersData);
+};
+
+init();

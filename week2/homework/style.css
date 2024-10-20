@@ -112,8 +112,9 @@ article:nth-child(7) {
     height: 38px;
 }
 
-input::placeholder {
-    padding: 0 5px;
+input[type="text"], input[type="number"] {
+    padding: 5px 5px;
+    box-sizing: border-box;
 }
 
 .reset {
