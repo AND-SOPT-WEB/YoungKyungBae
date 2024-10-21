@@ -70,8 +70,16 @@ const searchClick = () => {
     });
 };
 
+const resetClick = () => {
+    document.querySelectorAll("input").forEach(input => {
+        input.value = "";
+    });
+    renderList(membersData);
+};
+
 const init = () => {
     searchBtn.addEventListener("click", searchClick);
+    resetBtn.addEventListener("click", resetClick);
     renderList(membersData);
 };
 
