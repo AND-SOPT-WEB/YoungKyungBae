@@ -157,9 +157,6 @@ const searchClick = () => {
     });
     
     renderList(filteredMembers);
-    document.querySelectorAll("input").forEach(input => {
-        input.value = "";
-    });
 };
 
 const resetClick = () => {
