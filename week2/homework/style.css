@@ -110,6 +110,7 @@ article:nth-child(7) {
     border-radius: 5px;
     border-width: 0;
     height: 38px;
+    cursor: pointer;
 }
 
 input[type="text"], input[type="number"] {
@@ -128,8 +129,33 @@ input[type="text"], input[type="number"] {
     flex-basis: 50%;
 }
 
-table {
+.management {
+    display: flex;
+    flex-direction: column;
     width: 60%;
+}
+
+.management__button {
+    display: flex;
+    justify-content: end;
+    gap: 5px;
+    margin: 5px 0;
+}
+
+.management__button button {
+    color: #fffaf8;
+    border-radius: 5px;
+    border-width: 0;
+    height: 28px;
+    cursor: pointer;
+}
+
+.delete {
+    background-color: #7FA1C3;
+}
+
+.add {
+    background-color: #083e75;
 }
 
 th, td {
