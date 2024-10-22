@@ -1,11 +1,13 @@
 import { members } from './data.js';
 
-const membersData = JSON.parse(localStorage.getItem("membersData")) ?? [];
-
 const searchBtn = document.querySelector(".search");
 const resetBtn = document.querySelector(".reset");
 
 const deleteBnt = document.querySelector(".delete");
+
+const getMembersData = () => {
+    return JSON.parse(localStorage.getItem("membersData")) ?? [];
+};
 
 const getInputValues = () => {
     return {
@@ -74,6 +76,7 @@ const renderList = (data) => {
         checkBoxHead.appendChild(checkBox);
         checkBox.setAttribute("type", "checkbox");
         checkBox.setAttribute("class", "checkBox");
+        checkBox.setAttribute("data-id", member.id);
         name.textContent = member.name;
         englishName.textContent = member.englishName;
         github.textContent = member.github;
@@ -91,14 +94,6 @@ const renderList = (data) => {
         memberTr.appendChild(firstWeekGroup);
         memberTr.appendChild(secondWeekGroup);
         memberTable.appendChild(memberTr);
-
-        deleteBnt.addEventListener("click", () => {
-            if(checkBox.checked) {
-                data.splice(index, 1);
-                localStorage.setItem("membersData", JSON.stringify(data));
-                renderList(data);
-            }
-        });
     });
 
     const checkAll = document.querySelector(".checkAll");
@@ -108,7 +103,6 @@ const renderList = (data) => {
     for(const checkbox of checkboxes) {
         checkbox.addEventListener("click", () => {
             const totalCnt = checkboxes.length;
-            console.log(totalCnt);
 
             const checkedCnt = document.querySelectorAll('.checkBox:checked').length;
             
@@ -121,6 +115,18 @@ const renderList = (data) => {
 
         });
     }
+
+    deleteBnt.addEventListener("click", () => deleteClick());
+};
+
+const deleteClick = () => {
+    const checkedBoxes = document.querySelectorAll(".checkBox:checked");
+    const idToDelete = Array.from(checkedBoxes).map(checkbox => Number(checkbox.getAttribute("data-id")));
+
+    const filteredData = getMembersData().filter(member => !idToDelete.includes(member.id));
+
+    localStorage.setItem("membersData", JSON.stringify(filteredData));
+    searchClick();
 };
 
 const checkAllClick = (checkAll) => {
@@ -144,7 +150,7 @@ const checkAllClick = (checkAll) => {
 const searchClick = () => {
     const filters = getInputValues();
 
-    const filteredMembers = membersData.filter(member => {
+    const filteredMembers = getMembersData().filter(member => {
         return (
             (!filters.name || member.name.includes(filters.name)) &&
             (!filters.englishName || member.englishName.includes(filters.englishName)) &&
@@ -163,13 +169,13 @@ const resetClick = () => {
     document.querySelectorAll("input").forEach(input => {
         input.value = "";
     });
-    renderList(membersData);
+    renderList(getMembersData());
 };
 
 const init = () => {
     searchBtn.addEventListener("click", searchClick);
     resetBtn.addEventListener("click", resetClick);
-    renderList(membersData);
+    renderList(getMembersData());
 };
 
 init();
