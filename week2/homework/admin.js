@@ -4,6 +4,10 @@ const searchBtn = document.querySelector(".search");
 const resetBtn = document.querySelector(".reset");
 
 const deleteBnt = document.querySelector(".delete");
+const modal = document.querySelector(".modal");
+const modalOpen = document.querySelector(".add");
+const modalClose = document.querySelector(".closeModal");
+const addMember = document.querySelector(".addBtn");
 
 const getMembersData = () => {
     return JSON.parse(localStorage.getItem("membersData")) ?? [];
@@ -18,6 +22,18 @@ const getInputValues = () => {
         role: document.querySelector("input.role").value.trim(),
         firstWeekGroup: document.querySelector("input.firstGroup").value.trim(),
         secondWeekGroup: document.querySelector("input.secondGroup").value.trim(),
+    };
+};
+
+const getModalInputValues = () => {
+    return {
+        name: document.querySelector(".modal input.name").value.trim(),
+        englishName: document.querySelector(".modal input.enName").value.trim(),
+        github: document.querySelector(".modal input.github").value.trim(),
+        gender: document.querySelector(".modal input.gender").value.trim(),
+        role: document.querySelector(".modal input.role").value.trim(),
+        firstWeekGroup: document.querySelector(".modal input.firstGroup").value.trim(),
+        secondWeekGroup: document.querySelector(".modal input.secondGroup").value.trim(),
     };
 };
 
@@ -172,10 +188,42 @@ const resetClick = () => {
     renderList(getMembersData());
 };
 
+const addClick = () => {
+    modal.style.display = 'block';
+};
+
+const closeClick = () => {
+    document.querySelectorAll(".modal input").forEach(input => {
+        input.value = "";
+    });
+    modal.style.display = 'none';
+};
+
+const addMemberClick = () => {
+    const member = getModalInputValues();
+    const membersData = getMembersData();
+
+    if(!member.name || !member.englishName || !member.github ||
+        !member.gender || !member.role || !member.firstWeekGroup || !member.secondWeekGroup) {
+            alert("모든 필드를 입력해주세요.")
+        }
+    else {
+        member.id = membersData[membersData.length - 1].id + 1;
+        membersData.push(member);
+        localStorage.setItem("membersData", JSON.stringify(membersData));
+        renderList(membersData);
+        closeClick();
+    }
+};
+
 const init = () => {
     searchBtn.addEventListener("click", searchClick);
     resetBtn.addEventListener("click", resetClick);
     renderList(getMembersData());
+    modalOpen.addEventListener("click", addClick);
+    modalClose.addEventListener("click", closeClick);
+    addMember.addEventListener("click", addMemberClick);
+
 };
 
 init();

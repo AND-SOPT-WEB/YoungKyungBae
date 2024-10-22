@@ -169,3 +169,60 @@ th {
     background-color: #7FA1C3;
     color: #fffaf8;
 }
+
+.modal {
+    display: none;
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: rgba(0,0,0,0.5);
+}
+
+.addModal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+    padding: 16px;
+    background: #ffffff;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.header button {
+    background-color: #ffffff00;
+    color: #4c4a4ac7;
+    border-radius: 5px;
+    border-width: 0;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.addModal input {
+    width: 100%;
+}
+
+.addBtn {
+    background-color: #083e75;
+    color: #fffaf8;
+    border-radius: 5px;
+    border-width: 0;
+    height: 28px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 8px;
+}

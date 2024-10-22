@@ -59,10 +59,48 @@
             </article>
 
             <table class="table">
-                
+
             </table>
         </section>
     </main>
+
+    <div class="modal">
+        <section class="addModal">
+            <article class="header">
+                <h2>새 멤버 추가</h2>
+                <button class="closeModal"><i class="fa-solid fa-xmark"></i></button>
+            </article>
+            <article class="name">
+                <p class="name">이름</p>
+                <input type="text" class="name" placeholder="이름을 입력하세요" onfocus="this.placeholder=''" onblur="this.placeholder='이름을 입력하세요'">
+            </article>
+            <article class="enName">
+                <p class="enName">영문 이름</p>
+                <input type="text" class="enName" placeholder="영문이름을 입력하세요" onfocus="this.placeholder=''" onblur="this.placeholder='영문이름을 입력하세요'">
+            </article>
+            <article class="github">
+                <p class="github">GitHub ID</p>
+                <input type="text" class="github" placeholder="GitHub ID를 입력하세요" onfocus="this.placeholder=''" onblur="this.placeholder='GitHub ID를 입력하세요'">
+            </article>
+            <article class="gender">
+                <p class="gender">성별</p>
+                <input type="text" class="gender" placeholder="성별 선택" onfocus="this.placeholder=''" onblur="this.placeholder='성별 선택'">
+            </article>
+            <article class="role">
+                <p class="role">역할</p>
+                <input type="text" class="role" placeholder="OB / YB 선택" onfocus="this.placeholder=''" onblur="this.placeholder='OB / YB 선택'">
+            </article>
+            <article class="firstGroup">
+                <p class="firstGroup">1주차 금잔디조</p>
+                <input type="text" class="firstGroup" placeholder="1주차 금잔디조를 입력하세요 (1~9)" onfocus="this.placeholder=''" onblur="this.placeholder='1주차 금잔디조를 입력하세요 (1~9)'">
+            </article>
+            <article class="secondGroup">
+                <p class="secondGroup">2주차 금잔디조</p>
+                <input type="text" class="secondGroup" placeholder="2주차 금잔디조를 입력하세요 (1~9)" onfocus="this.placeholder=''" onblur="this.placeholder='2주차 금잔디조를 입력하세요 (1~9)'">
+            </article>
+            <button class="addBtn">추가</button>
+        </section>
+    </div>
 
     <script type="module" src="admin.js"></script>
 </body>
