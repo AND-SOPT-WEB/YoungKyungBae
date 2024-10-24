@@ -182,10 +182,10 @@ const searchClick = () => {
 };
 
 const resetClick = () => {
-    document.querySelectorAll("input").forEach(input => {
+    document.querySelectorAll(".filter input").forEach(input => {
         input.value = "";
     });
-    document.querySelectorAll("select").forEach(input => {
+    document.querySelectorAll(".filter select").forEach(input => {
         input.value = "";
     });
     renderList(getMembersData());
@@ -199,8 +199,15 @@ const closeClick = () => {
     document.querySelectorAll(".modal input").forEach(input => {
         input.value = "";
     });
+    document.querySelectorAll(".modal select").forEach(input => {
+        input.value = "";
+    });
     modal.style.display = 'none';
 };
+
+window.addEventListener('click', (e) => {
+    e.target === document.querySelector(".modal") ?  closeClick() : false
+    });
 
 const addMemberClick = () => {
     const member = getModalInputValues();
