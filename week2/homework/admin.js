@@ -235,17 +235,17 @@ const filterRole = document.querySelector('.filter select.role');
 const modalGender = document.querySelector('.modal select.gender');
 const modalRole = document.querySelector('.modal select.role');
 
-const dropbox = (select) => {
+const hideDefaultOption = (select) => {
     const defaultOption = select.querySelector('option[value=""]');
-    defaultOption.style.display = 'none'; // 드롭다운이 열릴 때 기본값 숨김
+    defaultOption.style.display = 'none';
 };
 
-filterGender.addEventListener('focus', dropbox(filterGender));
-filterRole.addEventListener('focus', dropbox(filterRole));
-modalGender.addEventListener('focus', dropbox(modalGender));
-modalRole.addEventListener('focus', dropbox(modalRole));
-
 const init = () => {
+    // 초기화 시점에 기본 옵션 숨김 처리
+    hideDefaultOption(filterGender);
+    hideDefaultOption(filterRole);
+    hideDefaultOption(modalGender);
+    hideDefaultOption(modalRole);
     searchBtn.addEventListener("click", searchClick);
     resetBtn.addEventListener("click", resetClick);
     renderList(getMembersData());
