@@ -30,8 +30,8 @@ const getModalInputValues = () => {
         name: document.querySelector(".modal input.name").value.trim(),
         englishName: document.querySelector(".modal input.enName").value.trim(),
         github: document.querySelector(".modal input.github").value.trim(),
-        gender: document.querySelector(".modal input.gender").value.trim(),
-        role: document.querySelector(".modal input.role").value.trim(),
+        gender: document.querySelector(".modal select.gender").value.trim(),
+        role: document.querySelector(".modal select.role").value.trim(),
         firstWeekGroup: document.querySelector(".modal input.firstGroup").value.trim(),
         secondWeekGroup: document.querySelector(".modal input.secondGroup").value.trim(),
     };
@@ -219,18 +219,20 @@ const addMemberClick = () => {
     }
 };
 
-const genderSelect = document.querySelector('select.gender');
-const roleSelect = document.querySelector('select.role');
+const filterGender = document.querySelector('.filter select.gender');
+const filterRole = document.querySelector('.filter select.role');
+const modalGender = document.querySelector('.modal select.gender');
+const modalRole = document.querySelector('.modal select.role');
 
-genderSelect.addEventListener('focus', () => {
-    const defaultOption = genderSelect.querySelector('option[value=""]');
+const dropbox = (select) => {
+    const defaultOption = select.querySelector('option[value=""]');
     defaultOption.style.display = 'none'; // 드롭다운이 열릴 때 기본값 숨김
-});
+};
 
-roleSelect.addEventListener('focus', () => {
-    const defaultOption = roleSelect.querySelector('option[value=""]');
-    defaultOption.style.display = 'none'; // 드롭다운이 열릴 때 기본값 숨김
-});
+filterGender.addEventListener('focus', dropbox(filterGender));
+filterRole.addEventListener('focus', dropbox(filterRole));
+modalGender.addEventListener('focus', dropbox(modalGender));
+modalRole.addEventListener('focus', dropbox(modalRole));
 
 const init = () => {
     searchBtn.addEventListener("click", searchClick);
