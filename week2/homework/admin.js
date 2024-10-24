@@ -18,8 +18,8 @@ const getInputValues = () => {
         name: document.querySelector("input.name").value.trim(),
         englishName: document.querySelector("input.enName").value.trim(),
         github: document.querySelector("input.github").value.trim(),
-        gender: document.querySelector("input.gender").value.trim(),
-        role: document.querySelector("input.role").value.trim(),
+        gender: document.querySelector("select.gender").value.trim(),
+        role: document.querySelector("select.role").value.trim(),
         firstWeekGroup: document.querySelector("input.firstGroup").value.trim(),
         secondWeekGroup: document.querySelector("input.secondGroup").value.trim(),
     };
@@ -185,6 +185,9 @@ const resetClick = () => {
     document.querySelectorAll("input").forEach(input => {
         input.value = "";
     });
+    document.querySelectorAll("select").forEach(input => {
+        input.value = "";
+    });
     renderList(getMembersData());
 };
 
@@ -215,6 +218,19 @@ const addMemberClick = () => {
         closeClick();
     }
 };
+
+const genderSelect = document.querySelector('select.gender');
+const roleSelect = document.querySelector('select.role');
+
+genderSelect.addEventListener('focus', () => {
+    const defaultOption = genderSelect.querySelector('option[value=""]');
+    defaultOption.style.display = 'none'; // 드롭다운이 열릴 때 기본값 숨김
+});
+
+roleSelect.addEventListener('focus', () => {
+    const defaultOption = roleSelect.querySelector('option[value=""]');
+    defaultOption.style.display = 'none'; // 드롭다운이 열릴 때 기본값 숨김
+});
 
 const init = () => {
     searchBtn.addEventListener("click", searchClick);
