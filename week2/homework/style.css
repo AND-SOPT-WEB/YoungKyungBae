@@ -100,6 +100,10 @@ article:nth-child(7) {
     padding: 0;
 }
 
+a {
+    color : black;
+}
+
 .filter__button {
     display: flex;
     gap: 12px;

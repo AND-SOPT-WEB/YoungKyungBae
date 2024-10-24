@@ -95,7 +95,13 @@ const renderList = (data) => {
         checkBox.setAttribute("data-id", member.id);
         name.textContent = member.name;
         englishName.textContent = member.englishName;
-        github.textContent = member.github;
+
+        // GitHub 링크 연결
+        const githubLink = document.createElement("a");
+        githubLink.href = `https://github.com/${member.github}`;
+        githubLink.textContent = member.github;
+        githubLink.target = "_blank";
+
         gender.textContent = member.gender;
         role.textContent = member.role;
         firstWeekGroup.textContent = member.firstWeekGroup;
@@ -104,6 +110,7 @@ const renderList = (data) => {
         memberTr.appendChild(checkBoxHead);
         memberTr.appendChild(name);
         memberTr.appendChild(englishName);
+        github.appendChild(githubLink);
         memberTr.appendChild(github);
         memberTr.appendChild(gender);
         memberTr.appendChild(role);
