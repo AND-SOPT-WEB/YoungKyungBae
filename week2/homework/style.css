@@ -3,14 +3,14 @@
 .navbar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /* 33%씩 배분되고 남은 1%가 끝에 몰리지 않도록 */
     background-color: #7FA1C3;
     height: 32px;
     padding: 8px 12px;
 }
 
 .navbar i {
-    flex-basis: 33%;
+    flex-basis: 33%; /* 컨텐츠 길이에 상관없이 3등분되어 정렬 */
     justify-content: flex-start;
 }
 

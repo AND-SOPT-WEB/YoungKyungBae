@@ -291,6 +291,7 @@ export const members = [
     },
 ];
 
+// LocalStorage에 데이터가 있으면 불러오지 않음
 if (!localStorage.getItem("membersData")) {
     localStorage.setItem("membersData", JSON.stringify(members));
 }

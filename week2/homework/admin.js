@@ -77,7 +77,7 @@ const renderList = (data) => {
     const memberTable = document.querySelector(".table");
     memberTable.innerHTML = "";
     createTableHeader();
-    data.forEach((member, index) => {
+    data.forEach((member) => {
         const memberTr = document.createElement("tr");
         const checkBoxHead = document.createElement("td");
         const checkBox = document.createElement("input");
@@ -115,6 +115,7 @@ const renderList = (data) => {
     const checkAll = document.querySelector(".checkAll");
     checkAll.addEventListener("click", () => checkAllClick(checkAll));
 
+    // 전체 체크박스에서 하나라도 해제되면 맨위 체크박스도 같이 해제
     const checkboxes = document.querySelectorAll('.checkBox');
     for(const checkbox of checkboxes) {
         checkbox.addEventListener("click", () => {
@@ -168,6 +169,7 @@ const searchClick = () => {
 
     const filteredMembers = getMembersData().filter(member => {
         return (
+            //포함하는 값으로 필터링하기 위해 includes()
             (!filters.name || member.name.includes(filters.name)) &&
             (!filters.englishName || member.englishName.includes(filters.englishName)) &&
             (!filters.github || member.github.includes(filters.github)) &&
@@ -181,6 +183,7 @@ const searchClick = () => {
     renderList(filteredMembers);
 };
 
+// 초기화 버튼
 const resetClick = () => {
     document.querySelectorAll(".filter input").forEach(input => {
         input.value = "";
@@ -205,6 +208,7 @@ const closeClick = () => {
     modal.style.display = 'none';
 };
 
+// 백드롭 클릭시 모달 닫힘
 window.addEventListener('click', (e) => {
     e.target === document.querySelector(".modal") ?  closeClick() : false
     });
