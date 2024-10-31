@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "@emotion/styled";
 
-const Header = ({view, setView}) => {
+const Header = ({view, setView, timer, resetGame}) => {
     return (
         <HeaderContainer>
             <Name>1 to 50</Name>
@@ -12,12 +12,12 @@ const Header = ({view, setView}) => {
             
             {view === 'game' && (
                 <RightContainer>
-                <select className="level">
+                <select className="level" onChange={resetGame}>
                     <option value="level1">Level 1</option>
                     <option value="level2">Level 2</option>
                     <option value="level3">Level 3</option>
                 </select>
-                <Timer>0</Timer>
+                <Timer>{timer}</Timer>
                 </RightContainer>
             )}
         </HeaderContainer>
@@ -65,6 +65,8 @@ const RightContainer = styled.div`
 const Timer = styled.div`
     color: white;
     padding: 10px;
+    width: 3.125rem;
+    text-align: start;
 `;
 
 export default Header
