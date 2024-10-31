@@ -5,10 +5,10 @@ const Header = ({view, setView}) => {
     return (
         <HeaderContainer>
             <Name>1 to 50</Name>
-            <GameButton>
+            <SelectButton>
                 <Button className='gameBtn' active={view === 'game'} onClick={() => setView('game')}>게임</Button>
                 <Button className='rankBtn' active={view === 'ranking'} onClick={() => setView('ranking')}>랭킹</Button>
-            </GameButton>
+            </SelectButton>
             
             {view === 'game' && (
                 <RightContainer>
@@ -17,7 +17,7 @@ const Header = ({view, setView}) => {
                     <option value="level2">Level 2</option>
                     <option value="level3">Level 3</option>
                 </select>
-                <Timer>00:00</Timer>
+                <Timer>0</Timer>
                 </RightContainer>
             )}
         </HeaderContainer>
@@ -37,7 +37,7 @@ const Name = styled.h1`
     font-size: 1.75rem;
 `;
 
-const GameButton = styled.nav`
+const SelectButton = styled.nav`
     display: flex;
     gap: 0.5rem;
     margin-left: 28px;

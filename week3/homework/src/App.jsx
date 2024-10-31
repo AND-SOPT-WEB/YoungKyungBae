@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './App.css'
 import Header from './components/Header';
-// import Game from './components/Game';
+import Game from './components/Game';
 // import Ranking from './components/Ranking';
 
 
@@ -11,8 +11,8 @@ const App = () => {
   return (
     <>
       <Header setView={setView} view={view} />
-      {/* {view === 'game' && <Game />}
-      {view === 'ranking' && <Ranking />} */}
+      {view === 'game' && <Game />}
+      {/* {view === 'ranking' && <Ranking />} */}
     </>
   )
 }
