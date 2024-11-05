@@ -14,7 +14,6 @@ const App = () => {
   const [level, setLevel] = useState('level1');
 
   const resetGame = (currentLevel) => {
-    setIsTimerRunning(false);
     setTimer(0);
     // setCurrentSet([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     setNextNumber(1);

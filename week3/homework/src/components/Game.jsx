@@ -85,6 +85,7 @@ const Game = ({nextNumber, setNextNumber, currentSet, setCurrentSet, timer, setT
 
     const endGame = () => {
         // alert(`게임 끝!! 기록: ${timer.toFixed(2)} 초`);
+        setIsTimerRunning(false);
         setShowModal(true);
         const gameRecord = {
             timestamp: new Date().toLocaleString(),
@@ -94,7 +95,7 @@ const Game = ({nextNumber, setNextNumber, currentSet, setCurrentSet, timer, setT
         const updatedGameData = [...gameData, gameRecord];
         setGameData(updatedGameData);
         localStorage.setItem('gameData', JSON.stringify(updatedGameData));
-        resetGame(level);
+        // resetGame(level);
     };
 
     const getNextNumber = (start, end) => {
@@ -106,7 +107,10 @@ const Game = ({nextNumber, setNextNumber, currentSet, setCurrentSet, timer, setT
     // 그리드 크기 설정
     const gridSize = level === 'level1' ? 3 : level === 'level2' ? 4 : 5;
 
-    const closeModal = () => setShowModal(false);
+    const closeModal = () => {
+        setShowModal(false);
+        resetGame(level); // 모달을 닫을 때 게임을 초기화
+    };
 
     return (
         <GameBoard>
@@ -156,6 +160,7 @@ const GameButton = styled.button`
     width: 5rem;
     height: 5rem;
     font-size: 1.5em;
+    text-align: center;
     background-color: ${({ level, num }) => {
         if (level === 'level1') {
             return num <= 9 ? '#CDC1FF' : '#A594F9';
