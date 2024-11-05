@@ -129,6 +129,7 @@ const GameBoard = styled.main`
     align-items: center;
 
     color: black;
+    height: 100vh;
 `
 
 const GameButtonPlace = styled.section`
