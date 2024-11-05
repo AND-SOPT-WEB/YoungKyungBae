@@ -7,7 +7,18 @@ const Ranking = () => {
     // const [gameData, setGameData] = useState(JSON.parse(localStorage.getItem("gameData")) ?? []);
     const gameData = JSON.parse(localStorage.getItem("gameData")) ?? [];
 
-    const sortedData = gameData.sort((a,b) => parseFloat(a.playTime) - parseFloat(b.playTime));
+    // const sortedData = gameData.sort((a,b) => parseFloat(a.playTime) - parseFloat(b.playTime));
+    const sortedData = gameData.sort((a, b) => {
+        
+        const levelA = parseInt(a.level.replace('level', ''), 10);
+        const levelB = parseInt(b.level.replace('level', ''), 10);
+        
+        if (levelA !== levelB) {
+            return levelB - levelA;
+        } else {
+            return parseFloat(a.playTime) - parseFloat(b.playTime);
+        }
+    });
 
     // setResetData(false);
 

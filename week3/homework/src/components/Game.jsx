@@ -90,7 +90,7 @@ const Game = ({nextNumber, setNextNumber, currentSet, setCurrentSet, timer, setT
         const updatedGameData = [...gameData, gameRecord];
         setGameData(updatedGameData);
         localStorage.setItem('gameData', JSON.stringify(updatedGameData));
-        resetGame();
+        resetGame(level);
     };
 
     const getNextNumber = (start, end) => {
@@ -108,7 +108,7 @@ const Game = ({nextNumber, setNextNumber, currentSet, setCurrentSet, timer, setT
             <GameButtonPlace gridSize={gridSize}>
                 {numbers.map((num, index) => (
                     num !== null ? (
-                        <GameButton key={index} onClick={() => numberClick(num)} level={level} num={num}>
+                        <GameButton key={index} onClick={() => numberClick(num)} level={level} num={num} data-num={num}>
                             {num}
                         </GameButton>
                     ) : (
@@ -154,6 +154,16 @@ const GameButton = styled.button`
             return '#CDC1FF';
         }
     }};
+
+    &:focus {
+        outline: none;
+        border: none;
+    }
+
+    &:active {
+        opacity: 0.3;
+    }
+
 `
 
 const EmptyButton = styled.div`
