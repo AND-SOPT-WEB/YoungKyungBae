@@ -28,9 +28,10 @@ const HeaderContainer = styled.header`
     display: flex;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #6482AD;
+    background-color: #433878;
     box-sizing: border-box;
-    width: 100%;
+    height: 76px;
+    margin: 0;
 `;
 
 const Name = styled.h1`
@@ -44,14 +45,19 @@ const SelectButton = styled.nav`
 `;
 
 const Button = styled.button`
-    background-color: ${(props) => (props.active ? '#083e75' : 'rgb(0, 0, 0, 0)')};
+    background-color: ${(props) => (props.active ? '#7E60BF' : 'rgb(0, 0, 0, 0)')};
     color: white;
     border: none;
     padding: 10px;
     cursor: pointer;
 
     &:hover {
-        background-color: #083e75;
+        background-color: #E4B1F0;
+    }
+
+    &:focus {
+        outline: none;
+        border: none;
     }
 `;
 

@@ -80,7 +80,7 @@ const Game = ({nextNumber, setNextNumber, currentSet, setCurrentSet, timer, setT
             <GameButtonPlace>
                 {numbers.map((num, index) => (
                     num !== null ? (
-                        <GameButton key={index} onClick={() => numberClick(num)} style={{ backgroundColor: num <= 9 ? 'lightgreen' : 'darkgreen' }}>
+                        <GameButton key={index} onClick={() => numberClick(num)} style={{ backgroundColor: num <= 9 ? '#CDC1FF' : '#A594F9' }}>
                             {num}
                         </GameButton>
                     ) : (
@@ -96,8 +96,11 @@ const Game = ({nextNumber, setNextNumber, currentSet, setCurrentSet, timer, setT
 
 
 const GameBoard = styled.main`
-    width: 30%;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: black;
 `
 
 const GameButtonPlace = styled.section`
@@ -111,6 +114,7 @@ const GameButtonPlace = styled.section`
 const GameButton = styled.button`
     width: 100px;
     height: 100px;
+    font-size: 1.5em;
 `
 
 const EmptyButton = styled.div`
