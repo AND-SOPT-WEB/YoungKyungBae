@@ -159,6 +159,7 @@ const GameButtonPlace = styled.section`
 const GameButton = styled.button`
     width: 5rem;
     height: 5rem;
+    padding: 0;
     font-size: 1.5em;
     text-align: center;
     background-color: ${({ level, num }) => {
