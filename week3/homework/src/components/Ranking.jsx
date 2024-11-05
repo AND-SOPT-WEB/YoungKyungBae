@@ -23,7 +23,7 @@ const Ranking = () => {
     // setResetData(false);
 
     return (
-        <main>
+        <RankingMain>
             <RankingContainer>
                 <RankingBoard>
                     <h2>랭킹</h2>
@@ -54,10 +54,13 @@ const Ranking = () => {
                     </tbody>
                 </StyledTable>
             </RankingContainer>
-        </main>
+        </RankingMain>
     )
 }
 
+const RankingMain = styled.main`
+    height: 100vh;
+`
 
 const RankingContainer = styled.section`
     width: 50%;

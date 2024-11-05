@@ -1,10 +1,13 @@
 import React from 'react'
 import styled from "@emotion/styled";
 import { useState, useEffect } from 'react';
+import Modal from './\bModal';
+// import Modal from './components/Modal';
 
 const Game = ({nextNumber, setNextNumber, currentSet, setCurrentSet, timer, setTimer, isTimerRunning, setIsTimerRunning, resetGame, level}) => {
     const [numbers, setNumbers] = useState([]);
     const [gameData, setGameData] = useState(JSON.parse(localStorage.getItem("gameData")) ?? []);
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         setNumbers(randomNumbers(currentSet));
@@ -81,7 +84,8 @@ const Game = ({nextNumber, setNextNumber, currentSet, setCurrentSet, timer, setT
     };
 
     const endGame = () => {
-        alert(`게임 끝!! 기록: ${timer.toFixed(2)} 초`);
+        // alert(`게임 끝!! 기록: ${timer.toFixed(2)} 초`);
+        setShowModal(true);
         const gameRecord = {
             timestamp: new Date().toLocaleString(),
             level: level,
@@ -102,6 +106,8 @@ const Game = ({nextNumber, setNextNumber, currentSet, setCurrentSet, timer, setT
     // 그리드 크기 설정
     const gridSize = level === 'level1' ? 3 : level === 'level2' ? 4 : 5;
 
+    const closeModal = () => setShowModal(false);
+
     return (
         <GameBoard>
             <h2>다음 숫자: {nextNumber}</h2>
@@ -117,6 +123,12 @@ const Game = ({nextNumber, setNextNumber, currentSet, setCurrentSet, timer, setT
                     
                 ))}
             </GameButtonPlace>
+            {showModal && (
+                <Modal onClose={closeModal}>
+                    <h3>게임 끝!!</h3>
+                    <p>기록: {timer.toFixed(2)} 초</p>
+                </Modal>
+            )}
         </GameBoard>
     )
 }
