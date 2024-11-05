@@ -1,7 +1,14 @@
 import React from 'react'
 import styled from "@emotion/styled";
 
-const Header = ({view, setView, timer, resetGame}) => {
+const Header = ({view, setView, timer, resetGame, setLevel}) => {
+
+    const levelChange = (event) => {
+        setLevel(event.target.value);
+        console.log(event.target.value);
+        resetGame();
+    };
+
     return (
         <HeaderContainer>
             <Name>1 to 50</Name>
@@ -12,12 +19,12 @@ const Header = ({view, setView, timer, resetGame}) => {
             
             {view === 'game' && (
                 <RightContainer>
-                <select className="level" onChange={resetGame}>
-                    <option value="level1">Level 1</option>
-                    <option value="level2">Level 2</option>
-                    <option value="level3">Level 3</option>
-                </select>
-                <Timer>{timer}</Timer>
+                    <select className="level" onChange={levelChange}>
+                        <option value="level1">Level 1</option>
+                        <option value="level2">Level 2</option>
+                        <option value="level3">Level 3</option>
+                    </select>
+                    <Timer>{timer}</Timer>
                 </RightContainer>
             )}
         </HeaderContainer>
