@@ -20,7 +20,7 @@ const Game = ({nextNumber, setNextNumber, currentSet, setCurrentSet, timer, setT
         if(isTimerRunning) {
             interval = setInterval(() => {
                 setTimer((prev) => +(prev + 0.01).toFixed(2)); // 소수점 2자리
-            }, 50); // 10ms 마다 업데이트
+            }, 10); // 10ms 마다 업데이트
         } else if(!isTimerRunning && timer !== 0) {
             clearInterval(interval);
         }
