@@ -12,19 +12,21 @@ const Login = () => {
     return (
         <LoginContainer>
             <Title>로그인</Title>
-            <Input
-                placeholder="아이디"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-            />
-            <Input
-                type="password"
-                placeholder="비밀번호"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            <Button onClick={() => alert("로그인 시도")}>로그인</Button>
-            <SignUpLink onClick={() => navigate("/signup")}>회원가입</SignUpLink>
+            <section>
+                <Input
+                    placeholder="아이디"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                />
+                <Input
+                    type="password"
+                    placeholder="비밀번호"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <Button onClick={() => alert("로그인 시도")}>로그인</Button>
+                <SignUpLink onClick={() => navigate("/signup")}>회원가입</SignUpLink>
+            </section>
         </LoginContainer>
     );
 };
@@ -44,6 +46,8 @@ const Title = styled.h1`
 
 const SignUpLink = styled.article`
     margin-top: 1rem;
+    display: flex;
+    justify-content: center;
     color: #B7B7B7;
     cursor: pointer;
     text-decoration: underline;
