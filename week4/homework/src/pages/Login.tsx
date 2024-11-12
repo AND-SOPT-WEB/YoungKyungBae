@@ -3,11 +3,27 @@ import styled from "@emotion/styled";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import { useState } from "react";
+import { postLogin } from '../apis/userApi';
 
 const Login = () => {
     const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+
+    const handleLogin = async () => {
+        const {success, token, code} = await postLogin(username, password);
+        if (success) {
+            alert("성공");
+            localStorage.setItem("token", token);
+            // navigate("/mypage");
+        } else {
+            if (code === "01") {
+                alert("비밀번호가 틀렸습니다.")
+            } else {
+                alert("로그인 요청 정보가 잘못되었습니다.");
+            }
+        }
+    }
 
     return (
         <LoginContainer>
@@ -24,9 +40,10 @@ const Login = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <Button onClick={() => alert("로그인 시도")}>로그인</Button>
-                <SignUpLink onClick={() => navigate("/signup")}>회원가입</SignUpLink>
+                <Button onClick={() => handleLogin()}>로그인</Button>
             </section>
+                <SignUpLink onClick={() => navigate("/signup")}>회원가입</SignUpLink>
+            {/* </section> */}
         </LoginContainer>
     );
 };
@@ -46,8 +63,6 @@ const Title = styled.h1`
 
 const SignUpLink = styled.article`
     margin-top: 1rem;
-    display: flex;
-    justify-content: center;
     color: #B7B7B7;
     cursor: pointer;
     text-decoration: underline;

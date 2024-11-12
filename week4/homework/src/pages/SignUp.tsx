@@ -22,12 +22,12 @@ const SignUp = () => {
     };
 
     const handleSignUp = async (hobby: string) => {
-        const {success, no, error} = await postSignup(username, password, hobby);
+        const {success, no, code} = await postSignup(username, password, hobby);
         if (success) {
             alert(`회원가입 성공! 회원번호: ${no}`);
             navigate("/");
         } else {
-            alert(`회원가입 실패: 오류 코드 ${error}`);
+            alert(`회원가입 실패: 오류 코드 ${code}`);
         }
     };
 
