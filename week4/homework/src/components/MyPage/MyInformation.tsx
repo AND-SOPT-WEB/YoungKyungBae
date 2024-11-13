@@ -3,14 +3,33 @@ import styled from "@emotion/styled";
 import Input from '../Input';
 import Button from '../Button';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { putUserInfo } from '../../apis/userApi';
 
 const MyInformation = () => {
+    const navigate = useNavigate();
     const [newPassword, setNewPassword] = useState("");
     const [newHobby, setNewHobby] = useState("");
 
-    const handleFix = () => {
+    const handleChange = async () => {
+        if (!newPassword && !newHobby) {
+            alert("변경할 비밀번호나 취미를 입력해주세요.");
+            return;
+        }
 
-    }
+        const updateData: { hobby?: string; password?: string } = {};
+        if (newPassword) updateData.password = newPassword;
+        if (newHobby) updateData.hobby = newHobby;
+
+        const { success } = await putUserInfo(updateData);
+
+        if (success) {
+            alert("정보 수정에 성공했습니다.");
+            navigate("/");
+        } else {
+            alert("hobby 혹은 password 길이가 8자를 넘기지 않는지 확인해주세요.")
+        }
+    };
 
     return (
         <Container>
@@ -31,7 +50,7 @@ const MyInformation = () => {
                     onChange={(e) => setNewHobby(e.target.value)}
                 />
             </Section>
-            <Button onClick={handleFix}>검색</Button>
+            <Button onClick={handleChange}>수정하기</Button>
         </Container>
     );
 };

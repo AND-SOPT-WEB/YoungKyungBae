@@ -60,3 +60,14 @@ export const getUserHobby = async (userNo: number) => {
         return { success: false, code };
     }
 };
+
+export const putUserInfo = async (data: { hobby?: string; password?: string }) => {
+    try {
+        const response = await instance.put("/user", data);
+        return { success: true };
+    } catch (error) {
+        const axiosError = error as AxiosError<ErrorResponseData>;
+        const code = axiosError.response?.data?.code;
+        return { success: false, code };
+    }
+};
