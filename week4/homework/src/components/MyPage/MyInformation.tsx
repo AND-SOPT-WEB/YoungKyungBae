@@ -67,14 +67,16 @@ const Title = styled.h2`
     display: flex;
     justify-content: center;
     font-size: 2rem;
+    font-weight: bold;
     margin-bottom: 1rem;
 `;
 
 const Section = styled.article`
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 `;
 
 const Subtitle = styled.h3`
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+    font-weight: bold;
     color: #6c5a51;
 `;

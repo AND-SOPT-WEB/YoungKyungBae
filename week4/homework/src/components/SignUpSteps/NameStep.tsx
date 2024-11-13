@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Input from "../Input";
 import Button from "../Button";
+import styled from '@emotion/styled';
+import { Theme } from '../../styles/theme';
 
 interface NameStepProps {
     onNext: (username: string) => void;
@@ -13,7 +15,7 @@ const NameStep = ({ onNext }: NameStepProps) => {
 
     return (
         <>
-            <h2>이름</h2>
+            <Subtitle>이름</Subtitle>
             <Input
                 placeholder="이름을 입력해주세요"
                 value={username}
@@ -29,3 +31,9 @@ const NameStep = ({ onNext }: NameStepProps) => {
 
 
 export default NameStep;
+
+const Subtitle = styled.h2`
+    ${Theme.font.medium}
+    margin-bottom: 1rem;
+    color: #6c5a51;
+`;

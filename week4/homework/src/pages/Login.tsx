@@ -4,6 +4,7 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import { useState } from "react";
 import { postLogin } from '../apis/userApi';
+import { Theme } from '../styles/theme';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -56,17 +57,20 @@ const LoginContainer = styled.main`
 `;
 
 const Title = styled.h1`
-    font-size: 2.4rem;
+    ${Theme.font.large}
+    font-weight: bold;
     margin-bottom: 2rem;
+    color: ${Theme.color.black};
 `;
 
 const SignUpLink = styled.article`
+    ${Theme.font.small}
     margin-top: 1rem;
     color: #B7B7B7;
     cursor: pointer;
     text-decoration: underline;
     &:hover {
-        color: #5e479e;
+        color: #B03052;
     }
 `;
 

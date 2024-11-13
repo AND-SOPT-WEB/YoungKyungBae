@@ -21,7 +21,7 @@ const Input = ({ type = "text", placeholder, value, onChange }: InputProps) => {
 const StyledInput = styled.input`
     width: 100%;
     padding: 0.8rem;
-    margin-bottom: 1rem;
+    margin: 0.5rem 0;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1.6rem;

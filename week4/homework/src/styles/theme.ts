@@ -3,22 +3,27 @@ import { css } from "@emotion/react";
 const color = {
     black: "#17171a",
     white: "#fff",
+    pink: "#FFB0B0",
+    boldPink: "#CA7373",
 };
 
 const font = {
     large: css`
-        font-size: 1.8rem;
-        font-weight: 500;
+        font-size: 2.4rem;
+        font-weight: bold;
         line-height: 0;
     `,
     medium: css`
-        font-size: 1.4rem;
-        font-weight: 400;
+        font-size: 2rem;
+        font-weight: 500;
         line-height: 0;
     `,
+    small: css`
+        font-size: 1.2rem;
+    `
 };
 
-    export const Theme = {
+export const Theme = {
     color,
     font,
 };

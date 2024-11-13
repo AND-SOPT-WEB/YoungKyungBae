@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Input from "../Input";
 import Button from "../Button";
+import styled from '@emotion/styled';
+import { Theme } from '../../styles/theme';
 
 interface PasswordStepProps {
     onNext: (password: string) => void;
@@ -14,7 +16,7 @@ const PasswordStep = ({ onNext }: PasswordStepProps) => {
 
     return (
         <>
-            <h2>비밀번호</h2>
+            <Subtitle>비밀번호</Subtitle>
             <Input
                 placeholder="비밀번호를 입력해주세요"
                 type="password"
@@ -39,3 +41,9 @@ const PasswordStep = ({ onNext }: PasswordStepProps) => {
 };
 
 export default PasswordStep;
+
+const Subtitle = styled.h2`
+    ${Theme.font.medium}
+    margin-bottom: 1rem;
+    color: #6c5a51;
+`;

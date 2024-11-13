@@ -5,6 +5,7 @@ import NameStep from "../components/SignUpSteps/NameStep";
 import PasswordStep from '../components/SignUpSteps/PasswordStep';
 import HobbyStep from '../components/SignUpSteps/HobbyStep';
 import { postSignup } from '../apis/userApi';
+import { Theme } from '../styles/theme';
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -56,8 +57,8 @@ const SignUpContainer = styled.main`
 `;
 
 const Title = styled.h1`
-    font-size: 2.4rem;
-    margin-bottom: 2rem;
+    ${Theme.font.large}
+    margin-bottom: 4rem;
 `;
 
 const InputContainer = styled.section`
@@ -69,14 +70,14 @@ const LoginLinkContainer = styled.article`
     justify-content: center;
     gap: 0.8em;
     margin-top: 1rem;
-
+    ${Theme.font.small}
 `
 
 const LoginLink = styled.article`
     color: #AB886D;
     cursor: pointer;
     &:hover {
-        color: #9A7E6F;
+        color: #B03052;
     }
 `;
 

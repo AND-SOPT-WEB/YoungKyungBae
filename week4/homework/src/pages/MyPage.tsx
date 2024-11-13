@@ -1,6 +1,7 @@
 // src/pages/MyPage.tsx
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
+import { Theme } from '../styles/theme';
 
 const MyPage = () => {
     const navigate = useNavigate();
@@ -13,11 +14,14 @@ const MyPage = () => {
     return (
         <MyPageContainer>
             <Header>
-                <Title>마이페이지</Title>
-                <Nav>
-                    <StyledNavLink to="/mypage/hobby">취미</StyledNavLink>
-                    <StyledNavLink to="/mypage/my-info">내 정보</StyledNavLink>
-                </Nav>
+                <Container>
+                    <Title>마이페이지</Title>
+                    <Nav>
+                        <StyledNavLink to="/mypage/hobby">취미</StyledNavLink>
+                        <StyledNavLink to="/mypage/my-info">내 정보</StyledNavLink>
+                    </Nav>
+                </Container>
+                
                 <LogoutButton onClick={handleLogout}>로그아웃</LogoutButton>
             </Header>
             <Content>
@@ -40,12 +44,18 @@ const Header = styled.header`
     align-items: center;
     justify-content: space-between;
     padding: 1rem 2rem;
-    background-color: #6c5a51;
+    background-color: ${Theme.color.boldPink};
 `;
+
+const Container = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 7rem;
+`
 
 const Title = styled.h1`
     font-size: 1.8rem;
-    color: #fff;
+    color: ${Theme.color.white};
 `;
 
 const Nav = styled.nav`
@@ -54,16 +64,17 @@ const Nav = styled.nav`
 `;
 
 const StyledNavLink = styled(NavLink)`
-    color: #ccc;
+    color: #FFE3E3;
     font-size: 1.4rem;
     text-decoration: none;
 
     &.active {
-        color: #fff;
+        color: ${Theme.color.white};
+        font-weight: bold;
     }
 
     &:hover {
-        color: #fff;
+        color: ${Theme.color.white};
     }
 `;
 

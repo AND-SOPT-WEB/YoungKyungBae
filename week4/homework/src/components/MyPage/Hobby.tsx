@@ -38,7 +38,7 @@ const Hobby = () => {
             <Title>취미</Title>
             <Section>
                 <Subtitle>나의 취미</Subtitle>
-                <p>{myHobby}</p>
+                <HobbyInfo>{myHobby}</HobbyInfo>
             </Section>
             <Section>
                 <Subtitle>다른 사람들의 취미</Subtitle>
@@ -48,7 +48,7 @@ const Hobby = () => {
                     onChange={(e) => setUserNo(e.target.value)}
                 />
                 <Button onClick={() => handleSearch()}>검색</Button>
-                {searchedHobby != null && <p>{userNo}번 사용자의 취미: {searchedHobby}</p>}
+                {searchedHobby != null && <HobbyInfo>{userNo}번 사용자의 취미: {searchedHobby}</HobbyInfo>}
             </Section>
         </Container>
     );
@@ -66,6 +66,7 @@ const Title = styled.h2`
     display: flex;
     justify-content: center;
     font-size: 2rem;
+    font-weight: bold;
     margin-bottom: 1rem;
 `;
 
@@ -74,6 +75,11 @@ const Section = styled.article`
 `;
 
 const Subtitle = styled.h3`
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+    font-weight: bold;
     color: #6c5a51;
 `;
+
+const HobbyInfo = styled.p`
+    font-size: 1.5rem;
+`
