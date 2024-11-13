@@ -13,7 +13,6 @@ const Login = () => {
     const handleLogin = async () => {
         const {success, token, code} = await postLogin(username, password);
         if (success) {
-            // alert("성공");
             localStorage.setItem("token", token);
             navigate("/mypage/hobby");
         } else {

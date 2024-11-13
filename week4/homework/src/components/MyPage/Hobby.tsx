@@ -1,14 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import Input from '../Input';
 import Button from '../Button';
+import { getMyHobby, getUserHobby } from '../../apis/userApi';
 
 const Hobby = () => {
+    const [myHobby, setMyHobby] = useState<string | undefined>(undefined);
     const [userNo, setUserNo] = useState("");
-    // const [hobby, setHobby] = useState("독서");
+    const [searchedHobby, setSearchedHobby] = useState<string | undefined>(undefined);
 
-    const handleSearch = () => {
-        alert(`검색`);
+    useEffect(() => {
+        const fetchMyHobby = async () => {
+            const { success, hobby, code } = await getMyHobby();
+            if (success) {
+                setMyHobby(hobby);
+            } else {
+                alert(code);
+            }
+        };
+    
+        fetchMyHobby();
+    }, []);
+
+    const handleSearch = async () => {
+            const { success, hobby, code } = await getUserHobby(+userNo);
+            if (success) {
+                setSearchedHobby(hobby);
+            } else {
+                if (code === "01") {
+                    alert(`해당 번호의 데이터가 존재하지 않습니다.`);
+                }
+            }
     };
 
     return (
@@ -16,6 +38,7 @@ const Hobby = () => {
             <Title>취미</Title>
             <Section>
                 <Subtitle>나의 취미</Subtitle>
+                <p>{myHobby}</p>
             </Section>
             <Section>
                 <Subtitle>다른 사람들의 취미</Subtitle>
@@ -24,7 +47,8 @@ const Hobby = () => {
                     value={userNo}
                     onChange={(e) => setUserNo(e.target.value)}
                 />
-                <Button onClick={handleSearch}>검색</Button>
+                <Button onClick={() => handleSearch()}>검색</Button>
+                {searchedHobby != null && <p>{userNo}번 사용자의 취미: {searchedHobby}</p>}
             </Section>
         </Container>
     );
