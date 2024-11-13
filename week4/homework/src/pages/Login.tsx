@@ -13,9 +13,9 @@ const Login = () => {
     const handleLogin = async () => {
         const {success, token, code} = await postLogin(username, password);
         if (success) {
-            alert("성공");
+            // alert("성공");
             localStorage.setItem("token", token);
-            // navigate("/mypage");
+            navigate("/mypage/hobby");
         } else {
             if (code === "01") {
                 alert("비밀번호가 틀렸습니다.")
