@@ -25,9 +25,10 @@ const MyInformation = () => {
 
         if (success) {
             alert("정보 수정에 성공했습니다.");
+            localStorage.removeItem("token");
             navigate("/");
         } else {
-            alert("hobby 혹은 password 길이가 8자를 넘기지 않는지 확인해주세요.")
+            alert("hobby 혹은 password 길이가 8자를 넘겼는지 확인해주세요.")
         }
     };
 
@@ -38,6 +39,7 @@ const MyInformation = () => {
                 <Subtitle>새 비밀번호</Subtitle>
                 <Input
                     placeholder=''
+                    type='password'
                     value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)}
                 />
