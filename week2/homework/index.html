@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Week2 Membership Management Page</title>
+    <script src="https://kit.fontawesome.com/dc54b43422.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="navbar">
+        <i class="fa-solid fa-bars"></i>
+        <h1 class="title">회원 관리 페이지</h1>
+        <p class="navbar__content">오늘 하루만큼은 나도 팟짱🥳</p>
+    </header>
+
+    <main>
+        <section class="filter">
+            <article class="filter__container">
+                <article class="name">
+                    <div class="name">이름</div>
+                    <input type="text" class="name" placeholder="이름을 입력하세요" onblur="this.placeholder='이름을 입력하세요'">
+                </article>
+                <article class="enName">
+                    <div class="enName">영문이름</div>
+                    <input type="text" class="enName" placeholder="영문이름을 입력하세요" onblur="this.placeholder='영문이름을 입력하세요'">
+                </article>
+                <article class="github">
+                    <div class="github">GitHub</div>
+                    <input type="text" class="github" placeholder="GitHub ID를 입력하세요" onblur="this.placeholder='GitHub ID를 입력하세요'">
+                </article>
+                <article class="gender">
+                    <div class="gender">성별</div>
+                    <select class="gender">
+                        <option value="" selected>성별 선택</option>
+                        <option value="male">남자</option>
+                        <option value="female">여자</option>
+                    </select>
+                </article>
+                <article class="role">
+                    <div class="role">역할</div>
+                    <select class="role">
+                        <option value="" selected>OB / YB 선택</option>
+                        <option value="OB">OB</option>
+                        <option value="YB">YB</option>
+                    </select>
+                </article>
+                <article class="firstGroup">
+                    <div class="firstGroup">1주차 금잔디조</div>
+                    <input type="number" class="firstGroup" placeholder="1주차 금잔디조를 입력하세요 (1~9)" onblur="this.placeholder='1주차 금잔디조를 입력하세요 (1~9)'">
+                </article>
+                <article class="secondGroup">
+                    <div class="secondGroup">2주차 금잔디조</div>
+                    <input type="number" class="secondGroup" placeholder="2주차 금잔디조를 입력하세요 (1~9)" onblur="this.placeholder='2주차 금잔디조를 입력하세요 (1~9)'">
+                </article>
+            </article>
+            <article class="filter__button">
+                <button class="reset">초기화</button>
+                <button class="search">검색</button>
+            </article>
+        </section>
+
+        <section class="management">
+            <article class="management__button">
+                <button class="delete">선택삭제</button>
+                <button class="add">추가</button>
+            </article>
+
+            <table class="table">
+
+            </table>
+        </section>
+    </main>
+
+    <div class="modal">
+        <section class="addModal">
+            <article class="header">
+                <h2>새 멤버 추가</h2>
+                <button class="closeModal"><i class="fa-solid fa-xmark"></i></button>
+            </article>
+            <article class="name">
+                <p class="name">이름</p>
+                <input type="text" class="name" placeholder="이름을 입력하세요" onfocus="this.placeholder=''" onblur="this.placeholder='이름을 입력하세요'">
+            </article>
+            <article class="enName">
+                <p class="enName">영문 이름</p>
+                <input type="text" class="enName" placeholder="영문이름을 입력하세요" onfocus="this.placeholder=''" onblur="this.placeholder='영문이름을 입력하세요'">
+            </article>
+            <article class="github">
+                <p class="github">GitHub ID</p>
+                <input type="text" class="github" placeholder="GitHub ID를 입력하세요" onfocus="this.placeholder=''" onblur="this.placeholder='GitHub ID를 입력하세요'">
+            </article>
+            <article class="gender">
+                <p class="gender">성별</p>
+                <select class="gender">
+                    <option value="" selected>성별 선택</option>
+                    <option value="male">남자</option>
+                    <option value="female">여자</option>
+                </select>
+            </article>
+            <article class="role">
+                <p class="role">역할</p>
+                <select class="role">
+                    <option value="" selected>OB / YB 선택</option>
+                    <option value="OB">OB</option>
+                    <option value="YB">YB</option>
+                </select>
+            </article>
+            <article class="firstGroup">
+                <p class="firstGroup">1주차 금잔디조</p>
+                <input type="number" class="firstGroup" placeholder="1주차 금잔디조를 입력하세요 (1~9)" onfocus="this.placeholder=''" onblur="this.placeholder='1주차 금잔디조를 입력하세요 (1~9)'">
+            </article>
+            <article class="secondGroup">
+                <p class="secondGroup">2주차 금잔디조</p>
+                <input type="number" class="secondGroup" placeholder="2주차 금잔디조를 입력하세요 (1~9)" onfocus="this.placeholder=''" onblur="this.placeholder='2주차 금잔디조를 입력하세요 (1~9)'">
+            </article>
+            <button class="addBtn">추가</button>
+        </section>
+    </div>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>
